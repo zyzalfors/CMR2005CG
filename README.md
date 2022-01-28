@@ -1,4 +1,4 @@
-# CMR2005CheatGenerator
+# CMR2005CG
 
 This command line tool allows to generate cheat codes of the game Colin McRae Rally 2005 for platforms PC, PS2, PSP, XBOX.
 
