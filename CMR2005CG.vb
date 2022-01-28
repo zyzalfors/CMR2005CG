@@ -78,8 +78,8 @@ Module CMR2005CG
     Buffer(3) = Remainder(Quotient(Seed2, 26L), 26L) + 65L
     Buffer(4) = Remainder(Quotient(Seed2, 676L), 26L) + 65L
     Buffer(5) = Remainder(Seed2, 26L) + 65L
-    Dim BufMidXor As Long = CalcFeedback(Buffer)
-    Dim Feedback1 As Long = ToSigned32((Buffer(0) <<24L) + (Buffer(1) <<16L) + (Buffer(2) <<8L) + Buffer(3))
+    Dim BufMidXor As Long = CalculateFeedback(Buffer)
+    Dim Feedback1 As Long = ToSigned32((Buffer(0) << 24L) + (Buffer(1) << 16L) + (Buffer(2) << 8L) + Buffer(3))
     Dim Feedback2 As Long = ToSigned32((Buffer(4) << 24L) + (Buffer(5) << 16L) + ((BufMidXor + Remainder(CheatIDMagic Xor &H197ABD9L, Seed1 And &HFFFFFFFFL)) << 8L) + BufMidXor + Remainder(CheatIDMagic Xor &H13478FDDL, Seed2 And &HFFFFFFFFL))
     Dim TmpFeedback2 As Long = 0L
     For i As Int32 = 0 To 41
@@ -105,7 +105,7 @@ Module CMR2005CG
     Return code
   End Function
 
-  Private Function CalcFeedback(Buffer As Long()) As Long
+  Private Function CalculateFeedback(Buffer As Long()) As Long
     Dim Result As Long = 0
     For i As Int32 = 0 To Buffer.Length - 2
       Result += Buffer(i) Xor &H13C501L
@@ -118,8 +118,8 @@ Module CMR2005CG
   End Function
 
   Function CalculateSeed(n As Long) As Long
-    Dim Seed As Long = 1
-    If n <> 0 Then
+    Dim Seed As Long = 1L
+    If n <> 0L Then
       Seed = &HF82DL
       For i As Int32 = 0 To n - 2
         Seed = Remainder(ToSigned32(&HF82DL * Seed), &H5243L)
