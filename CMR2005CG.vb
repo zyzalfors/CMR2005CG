@@ -105,7 +105,7 @@ Module CMR2005CG
     Return code
   End Function
 
-  Private Function CalculateFeedback(Buffer As Long()) As Long
+  Function CalculateFeedback(Buffer As Long()) As Long
     Dim Result As Long = 0
     For i As Int32 = 0 To Buffer.Length - 2
       Result += Buffer(i) Xor &H13C501L
@@ -113,7 +113,7 @@ Module CMR2005CG
     Return ToSigned32(Result)
   End Function
 
-  Private Function ToSigned32(n As Long) As Long
+  Function ToSigned32(n As Long) As Long
     Return ((n And &HFFFFFFFFL) Xor &H80000000L) - &H80000000L
   End Function
 
