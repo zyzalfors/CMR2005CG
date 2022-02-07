@@ -1,5 +1,3 @@
-Imports System.Text.RegularExpressions
-
 Module CMR2005CG
 
   Function Quotient(n As Long, m As Long) As Long
@@ -13,7 +11,6 @@ Module CMR2005CG
   ReadOnly Cheats As String() = {"All tracks code", "4WD cars code", "2WD cars code", "Super 2WD cars code", "RWD cars code", "4x4 cars code", "Classic cars code", "Special cars code", "Group B cars code", "Mirror mode code (inaccessible)"}
 
   Function IsValidCode(text As String) As Boolean
-    If Regex.IsMatch(text, "[^0-9]") Then Return False
     Try
       Dim n As Long = CType(text, Long)
       Return True
