@@ -3,7 +3,7 @@
     public class Main
     {
 
-        public static String[] cheats = { "All tracks code", "4WD cars code", "2WD cars code", "Super 2WD cars code", "RWD cars code", "4x4 cars code", "Classic cars code", "Special cars code", "Group B cars code", "Mirror mode code (inaccessible)" };
+        private static String[] cheats = { "All tracks code", "4WD cars code", "2WD cars code", "Super 2WD cars code", "RWD cars code", "4x4 cars code", "Classic cars code", "Special cars code", "Group B cars code", "Mirror mode code (inaccessible)" };
 
         private static boolean Contains(String[] array, String text)
         {
