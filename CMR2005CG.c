@@ -19,7 +19,7 @@ int indexOf(unsigned char** array, int size, unsigned char* text)
 
 unsigned char* toLower(unsigned char* text)
 {
- unsigned char* lower = (unsigned char*) malloc(strlen(text) * sizeof(unsigned char));
+ unsigned char* lower = (unsigned char*) malloc((1 + strlen(text)) * sizeof(unsigned char));
  if(lower == NULL)
  {
   return text;
@@ -28,12 +28,13 @@ unsigned char* toLower(unsigned char* text)
  {
   lower[i] = tolower(text[i]);
  }
+ lower[strlen(text)] = '\0';
  return lower;
 }
 
 unsigned char* toUpper(unsigned char* text)
 {
- unsigned char* upper = (unsigned char*) malloc(strlen(text) * sizeof(unsigned char));
+ unsigned char* upper = (unsigned char*) malloc((1 + strlen(text)) * sizeof(unsigned char));
  if(upper == NULL)
  {
   return text;
@@ -42,6 +43,7 @@ unsigned char* toUpper(unsigned char* text)
  {
   upper[i] = toupper(text[i]);
  }
+ upper[strlen(text)] = '\0';
  return upper;
 }
 
@@ -119,7 +121,7 @@ unsigned char* generateCode(long array1[], long array2[], long accessCode, long 
  buffer[3] = rem((feedback1 >> 16L) & 0xFFL, 26L) + 65L;
  buffer[4] = rem((feedback1 >> 8L) & 0xFFL, 26L) + 65L;
  buffer[5] = rem(feedback1 & 0xFFL, 26L) + 65L;
- unsigned char* code = (unsigned char*) malloc(6 * sizeof(unsigned char));
+ unsigned char* code = (unsigned char*) malloc(7 * sizeof(unsigned char));
  if(code == NULL)
  {
   return "NULL";
@@ -128,6 +130,7 @@ unsigned char* generateCode(long array1[], long array2[], long accessCode, long 
  {
   code[i] = (unsigned char) buffer[i];
  }
+ code[6] = '\0';
  return code;
 }
 
